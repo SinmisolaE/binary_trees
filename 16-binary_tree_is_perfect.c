@@ -26,5 +26,24 @@ int binary_tree_is_perfect(const binary_tree_t *tree)
  */
 size_t binary_tree_height(binary_tree_t *tree)
 {
-	
+	size_t x, y;
+	if (!tree)
+		return (0);
+	x = tree->left ? 1 + binary_tree_t(tree->left) : 0;
+	y = tree->right ? 1 + binary_tree_t(tree->right) : 0;
+	return (x > y ? x : y);
+}
+
+/**
+ * recursive_full - if tree has two or 0 children
+ * @tree: pointer to the node
+ * Return: 1 if true else 0
+ */
+int recursive_full(binary_tree_t *tree)
+{
+	if (!tree)
+		return (1);
+	if ((!tree->left && tree->right) || (!tree->right && tree->left))
+		return (0);
+	return (recursive_full(tree->left) && recursive_full(tree->right));
 }
