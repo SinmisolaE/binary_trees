@@ -6,7 +6,7 @@
  * @func: pointer to a function
  * Return: nain
  */
-void binary_tree_inorder(binary_tree_t *tree, (*func)(int))
+void binary_tree_inorder(binary_tree_t *tree, void (*func)(int))
 {
 	if (!tree || !func)
 		return;
