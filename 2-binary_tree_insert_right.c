@@ -6,17 +6,15 @@
  * @value: value of new node
  * Return: pointer of new node, or NULL
  */
-binary_tree_t *binary_tree_insert_right(binary_tree_t *parent, int value);
+binary_tree_t *binary_tree_insert_right(binary_tree_t *parent, int value)
 {
 	binary_tree_t *new;
 
 	if (!parent)
 		return (NULL);
-	new = malloc(sizeof(binary_tree_t));
+	new = binary_tree_node(parent, value);
 	if (!new)
-		return (new);
-	new->value = value;
-	new->parent = parent;
+		return (NULL);
 	if (parent->right)
 	{
 		new->right = parent->right;
