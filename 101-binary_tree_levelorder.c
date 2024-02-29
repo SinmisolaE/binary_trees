@@ -24,12 +24,12 @@ void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int))
  */
 void binary_levelorder_cont(const binary_tree_t *tree, void (*func)(int))
 {
-	if (!tree->left || !func)
-		return;
-	func(tree->left->n);
-	if (!tree->right)
-		return;
-	func(tree->right->n);
-	binary_levelorder_cont(tree->left, func);
-	binary_levelorder_cont(tree->right, func);
+	if (tree->left)
+		func(tree->left->n);
+	if (tree->right)
+		func(tree->right->n);
+	if (tree->left)
+		binary_levelorder_cont(tree->left, func);
+	if (tree->right)
+		binary_levelorder_cont(tree->right, func);
 }
