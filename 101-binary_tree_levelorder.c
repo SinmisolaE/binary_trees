@@ -28,7 +28,7 @@ void binary_levelorder_cont(const binary_tree_t *tree, void (*func)(int))
 		return;
 	func(tree->left->n);
 	if (!tree->right)
-                return;
+		return;
 	func(tree->right->n);
 	binary_levelorder_cont(tree->left, func);
 	binary_levelorder_cont(tree->right, func);
